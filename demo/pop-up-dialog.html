@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <style>
+    #mask_layout {
+      position: absolute;
+      /*z-index: 0;*/
+
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+
+      background-color: #9d9d9d;
+      filter: alpha(opacity=50);
+      opacity: .5;
+
+      display: none;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      z-index: 1;
+
+      display: none;
+      width: 100%;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="mask_layout"></div>
+  <article>
+    <button onclick="showFooter()">弹出底部</button>
+    <button onclick="alert('点击成功')">底部弹出时失效</button>
+  </article>
+  <footer onclick="hideFooter()">
+    点击关闭底部弹出层
+  </footer>
+  <script>
+    function showFooter() {
+      document.getElementsByTagName('footer')[0].style.display = 'flex'
+      document.getElementById('mask_layout').style.display = 'block'
+    }
+    function hideFooter() {
+      document.getElementsByTagName('footer')[0].style.display = 'none'
+      document.getElementById('mask_layout').style.display = 'none'
+    }
+  </script>
+</body>
+</html>
